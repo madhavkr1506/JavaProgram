@@ -47,6 +47,6 @@ public class HelloProgram {
                     System.exit(0);
             }
         }
-        /*scanner.close()*/
+        /*scanner.close();*/
     }
 }
