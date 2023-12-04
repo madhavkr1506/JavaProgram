@@ -1,4 +1,3 @@
-import java.nio.file.NotDirectoryException;
 import java.util.Scanner;
 class Node5{
     int data;
