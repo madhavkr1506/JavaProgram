@@ -1,10 +1,10 @@
-import java.util.Scanner;
 
-class Mode {
+
+class Node6 {
     int data;
-    Mode next, prev;
+    Node6 next, prev;
 
-    Mode(int data) {
+    Node6(int data) {
         this.data = data;
         this.next = null;
         this.prev = null;
@@ -12,7 +12,7 @@ class Mode {
 }
 
 public class FindPeakElement {
-    static Mode traverse(Mode ptr) {
+    static Node6 traversal(Node6 ptr) {
         while (ptr.next != null) {
             ptr = ptr.next;
         }
@@ -23,8 +23,8 @@ public class FindPeakElement {
         return ptr;
     }
 
-    static Mode insert(Mode head, int data) {
-        Mode n = new Mode(data);
+    static Node6 insertion(Node6 head, int data) {
+        Node6 n = new Node6(data);
         n.data = data;
         n.next = head;
         n.prev = null;
@@ -34,31 +34,30 @@ public class FindPeakElement {
         return n;
     }
 
-    static Mode peakNode(Mode head){
-        Mode peaknode=null;
-        Mode current = head;
+    static Node6 findPeakNode(Node6 head){
+        Node6 peakNode=null;
+        Node6 current = head;
         while(current != null && current.next != null){
             if(current.data > current.next.data){
-                peaknode=current;
+                peakNode=current;
                 break;
             }
             current=current.next;
         }
-        return peaknode;
+        return peakNode;
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Mode node = null;
-        node = insert(node, 1);
-        node = insert(node, 2);
-        node = insert(node, 3);
-        node = insert(node, 4);
-        node = insert(node, 5);
-        node = insert(node, 6);
-        traverse(node);
+        Node6 node = null;
+        node = insertion(node, 1);
+        node = insertion(node, 2);
+        node = insertion(node, 3);
+        node = insertion(node, 4);
+        node = insertion(node, 5);
+        node = insertion(node, 6);
+        traversal(node);
         System.out.println();
-        Mode peak=peakNode(node);
+        Node6 peak=findPeakNode(node);
         System.out.println(peak.data);
 
     }
