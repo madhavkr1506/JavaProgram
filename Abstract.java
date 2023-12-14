@@ -30,12 +30,16 @@ public class Abstract {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        Child1 object1 = new Child1();
+//        Child1 object1 = new Child1();
 
 //        object1.hello();
 //        Parent object2 = new Parent(); ----> Parent is an abstract class, and it cannot be instantiated.
 //        SubChild object3 = new SubChild(); ----> It will show an error.
 
+        Parent1 object2 = new Child1();   //  ----> Dynamic method dispatch
+//Note : Reference of an abstract class can assign to the object of a concrete subclass.
+//        It is possible to create a reference of an abstract class.
+//        It is not possible to create an object of an abstract class.
 
     }
 }
