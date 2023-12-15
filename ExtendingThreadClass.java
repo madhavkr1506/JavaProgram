@@ -5,9 +5,13 @@ class Earth extends Thread{
     public void function1(int a){
         System.out.println("The value of a is " + a);
     }
+    public void addition(int num1,int num2){
+        System.out.println("the addition of "+num1+" + "+num2+" is "+(num1+num2));
+    }
     @Override
     public void run(){
         function1(10);
+        addition(8,9);
     }
 }
 class Mars extends Thread{
@@ -28,6 +32,8 @@ public class ExtendingThreadClass {
         Mars obj2 = new Mars();
         obj1.start();
         obj2.start();
+        obj1.addition(6,5);
+//        obj1.run();
 
     }
 }
