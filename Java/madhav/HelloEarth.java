@@ -1,6 +1,10 @@
 package madhav;
 
+
+
 public class HelloEarth {
+    int a = 10;
+    protected int b = 11;
     public static void main(String[] args) {
         System.out.print("Hello and welcome!\n");
 
