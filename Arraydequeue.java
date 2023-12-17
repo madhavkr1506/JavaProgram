@@ -20,7 +20,8 @@ public class Arraydequeue {
         System.out.println(ad1);
         ad1.offerFirst(11);
         System.out.println(ad1);
-        
+
+//        Note : Similar to ArrayList and LinkedList
 
 
     }
