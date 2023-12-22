@@ -20,16 +20,17 @@ public class TrieDataStructureInsertion {
     public TrieDataStructureInsertion(){
         root = new Node();
     }
-    public void insert(String word){
-        for(int i=0;i<word.length();i++){
-            int index=word.charAt(i) - 'a';
-            if(root.children[index]==null){
-                root.children[index]=new Node();
+    public void insertion(String word){
+        Node current = root;
+        for(int i=0;i<word.length();i++) {
+            int index = word.charAt(i) - 'a';
+            if(current.children[index] == null){
+                current.children[index] = new Node();
             }
             if(i == word.length() - 1){
-                root.children[index].endOfWord=true;
+                current.children[index].endOfWord=true;
             }
-            root = root.children[index];
+            current = current.children[index];
         }
     }
     public static void main(String[] args) {
@@ -37,7 +38,7 @@ public class TrieDataStructureInsertion {
         String[] Words = {"madhav","mad","hav","kumar","kum","ar"};
         TrieDataStructureInsertion obj1 = new TrieDataStructureInsertion();
         for(int i=0;i< Words.length;i++){
-            obj1.insert(Words[i]);
+            obj1.insertion(Words[i]);
         }
 
     }
