@@ -11,10 +11,12 @@ class Node1{
     }
 }
 public class TrieDataStructureSearching {
-    private Node1 root;
-    public TrieDataStructureSearching(){
-        root = new Node1();
-    }
+//    private Node1 root;
+//    public TrieDataStructureSearching(){
+//        root = new Node1();
+//    }
+
+    Node1 root = new Node1();
     public void insertion(String word){
         Node1 current = root;
         for(int i=0;i<word.length();i++) {
