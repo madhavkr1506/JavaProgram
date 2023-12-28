@@ -1,10 +1,11 @@
 package GraphDataStructure;
 
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Graph6 {
+public class Graph7 {
     static class Edge{
         int source;
         int destination;
@@ -14,7 +15,7 @@ public class Graph6 {
         }
     }
     public static void createGraph(ArrayList<Edge> GraphArray[]){
-        for(int i=0;i<GraphArray.length;i++){
+        for(int i =0;i<GraphArray.length;i++){
             GraphArray[i] = new ArrayList<Edge>();
         }
         GraphArray[0].add(new Edge(0,1));
@@ -33,32 +34,44 @@ public class Graph6 {
 
         GraphArray[4].add(new Edge(4,2));
         GraphArray[4].add(new Edge(4,3));
-
     }
 
-    public static void bfs(ArrayList<Graph5.Edge> graph[], int v, boolean vis[], int start){
+    public static void bfs(ArrayList<Edge> graph[],int v,boolean vis[],int start){
         Queue<Integer> q = new LinkedList<>();
         q.add(start);
         while (!q.isEmpty()){
             int current = q.remove();
             if(vis[current] == false){
                 System.out.print(current + " ");
-                vis[current] = true;
-                for (int i=0;i<graph[current].size();i++){
-                    Graph5.Edge e = graph[current].get(i);
+                vis[current]=true;
+                for(int i=0;i<graph[current].size();i++){
+                    Edge e = graph[current].get(i);
                     q.add(e.destination);
                 }
             }
         }
     }
-
     public static void dfs(ArrayList<Edge> graph[],int current,boolean vis[]){
-        System.out.print(current+" ");
-        vis[current] = true;
+        System.out.print(current + " ");
+        vis[current]=true;
         for(int i=0;i<graph[current].size();i++){
             Edge e = graph[current].get(i);
             if(vis[e.destination] == false){
                 dfs(graph,e.destination,vis);
+            }
+        }
+    }
+    public static void printAllPath(ArrayList<Edge> graph[],int current,boolean vis[],String path,int target){
+        if(current == target){
+            System.out.println(path);
+            return;
+        }
+        for(int i=0;i<graph[current].size();i++){
+            Edge e = graph[current].get(i);
+            if(vis[e.destination] == false){
+                vis[current] = true;
+                printAllPath(graph,e.destination,vis,path+e.destination,target);
+                vis[current]=false;
             }
         }
     }
@@ -67,10 +80,15 @@ public class Graph6 {
         ArrayList<Edge> graph[] = new ArrayList[vertex];
         createGraph(graph);
         boolean vis[] = new boolean[vertex];
-        for(int i=0;i<vertex;i++){
-            if(vis[i] == false){
-                dfs(graph,i,vis);
-            }
-        }
+//        for(int i=0;i<vertex;i++){
+//            if(vis[i] == false){
+////                bfs(graph,vertex,vis,i);
+//                dfs(graph,i,vis);
+//            }
+//        }
+        int source=0;
+        int target=4;
+
+        printAllPath(graph,source,vis,"0",target);
     }
 }
