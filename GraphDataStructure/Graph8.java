@@ -23,7 +23,7 @@ public class Graph8 {
         graph[0].add(new Edge(0,2));
         graph[1].add(new Edge(1,0));
         graph[2].add(new Edge(2,3));
-//        graph[3].add(new Edge(3,0));
+        graph[3].add(new Edge(3,0));
     }
     public static void bfs(ArrayList<Edge> graph[],int v,boolean vis[],int start){
         Queue<Integer> q = new LinkedList<>();
@@ -84,7 +84,19 @@ public class Graph8 {
         int vertex = 4;
         ArrayList<Edge> graph[] = new ArrayList[vertex];
         createGraph(graph);
-        System.out.println(isCycle(graph,0,new boolean[vertex],new boolean[vertex]));
+//        System.out.println(isCycle(graph,0,new boolean[vertex],new boolean[vertex]));
+
+        boolean vis[] = new boolean[vertex];
+        boolean rec[] = new boolean[vertex];
+        for(int i=0;i<vertex;i++){
+            if(!vis[i]){
+                boolean isCycle = isCycle(graph,0,vis,rec);
+                if(isCycle){
+                    System.out.println(isCycle);
+                    break;
+                }
+            }
+        }
     }
 
 }
