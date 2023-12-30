@@ -30,7 +30,7 @@ public class Graph10 {
         vis[current]=true;
         for(int i=0;i<graph[current].size();i++){
             Edge e = graph[current].get(i);
-            if(!vis[current]){
+            if(!vis[e.destination]){
                 TopologicalSortingUtil(graph,e.destination,vis,stack);
             }
         }
