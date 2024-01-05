@@ -13,7 +13,7 @@ public class Graph21 {
             this.destination=destination;
         }
     }
-    public static void creategraph(ArrayList<Edge> graph[]){
+    public static void createGraph(ArrayList<Edge> graph[]){
         for(int i=0;i< graph.length;i++){
             graph[i]=new ArrayList<Edge>();
         }
@@ -57,7 +57,7 @@ public class Graph21 {
     public static void main(String[] args) {
         int vertex = 4;
         ArrayList<Edge> graph[] = new ArrayList[vertex];
-        creategraph(graph);
+        createGraph(graph);
         System.out.println(IsCycle(graph));
     }
 }
