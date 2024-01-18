@@ -1,3 +1,5 @@
+// write a program to get three sum which is equal to zero.
+
 import java.util.*;
 
 public class ClassWork2 {
@@ -27,6 +29,7 @@ public class ClassWork2 {
             }
         }
         System.out.println(result);
+
 
     }
 }
