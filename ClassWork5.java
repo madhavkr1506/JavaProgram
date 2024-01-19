@@ -14,8 +14,8 @@ public class ClassWork5 {
 //        Write a program that print alphabet in the given range (start with 1 and end with 26)
         int start = scanner.nextInt();
         int last = scanner.nextInt();
-        for(int i=64 + start;i<=last;i++){
-            System.out.print((char)i + " ");
+        for(int i=start;i<=last;i++){
+            System.out.print((char)(i+64) + " ");
         }
 
     }
