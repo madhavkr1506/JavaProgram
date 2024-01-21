@@ -1,5 +1,5 @@
 // write a program to get two sum which is equal to zero.
-
+package ClassWork;
 import java.util.*;
 
 public class ClassWork3 {

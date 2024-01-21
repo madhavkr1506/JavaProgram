@@ -1,5 +1,5 @@
 // write a program in java : print sum of consecutive elements of an array
-
+package ClassWork;
 import java.util.Scanner;
 
 public class ClassWork7 {

@@ -1,7 +1,5 @@
-
+package ClassWork;
 import java.util.*;
-
-
 public class ClassWork1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
