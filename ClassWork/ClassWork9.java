@@ -7,7 +7,8 @@ import java.util.Scanner;
 public class ClassWork9 {
     public static void main(String[] args) {
 //        Way to create a file
-        File my_file = new File("input1.txt");
+        File my_file = new File("input.txt");
+
         try{
             if(my_file.createNewFile()){
                 System.out.println("File is created");
@@ -22,14 +23,14 @@ public class ClassWork9 {
 
 //        Write into file
 
-        try {
-            FileWriter fileWriter = new FileWriter("input1.txt");
-            fileWriter.write("My name is Madhav kumar");
-            fileWriter.close();
-            System.out.println("written successfully");
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-        }
+//        try {
+//            FileWriter fileWriter = new FileWriter("input1.txt");
+//            fileWriter.write("My name is Madhav kumar");
+//            fileWriter.close();
+//            System.out.println("written successfully");
+//        }catch (IOException e){
+//            System.out.println(e.getMessage());
+//        }
 
 
 //        reading to a file
@@ -40,6 +41,7 @@ public class ClassWork9 {
                 String string = readFile.nextLine();
                 System.out.println(string);
             }
+            readFile.close();
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
@@ -47,16 +49,16 @@ public class ClassWork9 {
 
 //        file details
 
-        if(my_file.exists()){
-            System.out.println("File name = " + my_file.getName());
-            System.out.println("File path = " + my_file.getAbsolutePath());
-            System.out.println("Can read = " + my_file.canRead());
-            System.out.println("Can write = " + my_file.canWrite());
-            System.out.println("Length = " + my_file.length());
-        }
-        else {
-            System.out.println("File does not exists");
-        }
+//        if(my_file.exists()){
+//            System.out.println("File name = " + my_file.getName());
+//            System.out.println("File path = " + my_file.getAbsolutePath());
+//            System.out.println("Can read = " + my_file.canRead());
+//            System.out.println("Can write = " + my_file.canWrite());
+//            System.out.println("Length = " + my_file.length());
+//        }
+//        else {
+//            System.out.println("File does not exists");
+//        }
 
 //        way to delete a file
 
