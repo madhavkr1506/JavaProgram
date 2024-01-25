@@ -1,4 +1,4 @@
-// Write a java program to print sum of all elements inside a matrix : 
+// Write a java program to print sum of all elements inside a matrix :
 
 package ClassWork;
 
