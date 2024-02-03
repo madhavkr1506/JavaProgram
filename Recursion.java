@@ -1,35 +1,33 @@
-import java.util.Scanner;
+// write a program to sort an array using recursion : 
 
 public class Recursion {
 
-//    this is recursive approach
-//    static int factorial(int num){
-//        if(num == 0 || num == 1){
-//            return 1;
-//        }
-//        else{
-//            return num* factorial(num - 1);
-//        }
-//    }
-
-//    this is iterative approach
-    static int factorial(int num){
-        if(num == 0 || num == 1){
-            return 1;
+    public static void function1(int[] array,int num){
+        if(num == 0){
+            return;
         }
         else{
-            int fact = 1;
-            int i = 1;
-            while(i<=num){
-                fact=fact * i;
-                i++;
+            int maxindex = 0;
+            for(int i=0;i<num;i++){
+                if(array[i] > array[maxindex]){
+                    maxindex = i;
+                }
             }
-            return fact;
+            int temp = array[maxindex];
+            array[maxindex] = array[num - 1];
+            array[num - 1] = temp;
+
+            function1(array, num-1);
+
         }
+
     }
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(factorial(6));
-
+        int[] array = {11,15,14,16,18,17,19,13};
+        int num = array.length;
+        function1(array, num);
+        for (int i = 0; i < num; i++) {
+            System.out.print(array[i]+" ");
+        }
     }
 }
