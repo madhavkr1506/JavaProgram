@@ -105,6 +105,73 @@ public class Avl {
 
         return root;
     }
+    public static node packet(node root){
+        node current = root;
+        while(current.left != null){
+            current = current.left;
+        }
+        return current;
+    }
+
+    public static node deletenode(node root,int data){
+        if(root == null){
+            return root;
+        }
+        if(data < root.data){
+            root.left = deletenode(root.left, data);
+        }
+        else if(data > root.data){
+            root.right = deletenode(root.right, data);
+        }
+        else{
+            if((root.left == null) || (root.right == null)){
+                node temp = null;
+                if(temp == root.left){
+                    temp = root.right;
+                }
+                else{
+                    temp = root.left;
+                }
+                if(temp == null){
+                    temp = root;
+                    root = null;
+                }
+                else{
+                    root = temp;
+                }
+            }
+            else{
+                node temp = packet(root.right);
+                root.data = temp.data;
+                root.right = deletenode(root.right, temp.data);
+            }
+        }
+        if(root == null){
+            return root;
+        }
+        root.height = Math.max(getheight(root.left), getheight(root.right)) + 1;
+        int getbalancefactor = balancefactor(root);
+        if(getbalancefactor > 1 ){
+            if(data < root.data){
+                return rightrotate(root);
+            }
+            else{
+                root.left = leftrotate(root.left);
+                return rightrotate(root);
+            }
+        }
+        if(getbalancefactor < -1 ){
+            if(data < root.data){
+                root.right = rightrotate(root.right);
+                return leftrotate(root);
+            }
+            else{
+                return leftrotate(root);
+            }
+        }
+
+        return root;
+    }
     public static void main(String[] args) {
         node tree = null;
         tree = insertion(tree, 1);
@@ -116,7 +183,13 @@ public class Avl {
         preorder(tree);
         System.out.println();
         inorder(tree);
-
+        System.out.println();
         
+        deletenode(tree, 2);
+        preorder(tree);
+        System.out.println();
+        inorder(tree);
+
+
     }
 }
