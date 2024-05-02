@@ -31,12 +31,33 @@ public class VowelSum {
         NumMap.put(8, "eight");
         NumMap.put(9, "nine");
         NumMap.put(10, "ten");
+        NumMap.put(11, "eleven");
+        NumMap.put(12, "twelve");
+        NumMap.put(13, "thirteen");
+        NumMap.put(14, "fourteen");
+        NumMap.put(15, "fifteen");
+        NumMap.put(16, "sixteen");
+        NumMap.put(17, "seventeen");
+        NumMap.put(18, "eighteen");
+        NumMap.put(19, "nineteen");
+        NumMap.put(20, "twenty");
+        NumMap.put(30, "thirty");
+        NumMap.put(40, "forty");
+        NumMap.put(50, "fifty");
+        NumMap.put(60, "sixty");
+        NumMap.put(70, "seventy");
+        NumMap.put(80, "eighty");
+        NumMap.put(90, "ninety");
 
         ArrayList<Mapping> arrayList = new ArrayList<>();
 
         for(int i=0;i<num;i++){
             if(NumMap.containsKey(array[i])){
                 arrayList.add(new Mapping(array[i], NumMap.get(array[i])));
+            }else{
+                int tenthplace = array[i] / 10 * 10;
+                int unitplace = array[i] % 10;
+                arrayList.add(new Mapping(array[i], NumMap.get(tenthplace)+"-"+NumMap.get(unitplace)));
             }
         }
 
